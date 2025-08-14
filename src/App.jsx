@@ -1,5 +1,6 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import LoadingBar from './LoadingBar';
 import Background3D from './Background3D';
@@ -484,9 +485,10 @@ function App() {
         <p>© 2025 Juan Pablo Palacio Soler</p>
         <p className="mt-2">Byggt med kod & kreativitet</p>
       </footer>
-      <Background3D />
-    </motion.div>
-  );
-}
-
-export default App;
+              <Background3D />
+        <Analytics />
+      </motion.div>
+    );
+  }
+  
+  export default App;
