@@ -236,7 +236,7 @@ function App() {
               </motion.p>
             </motion.div>
 
-            {/* Timeline Grid - ALWAYS ALTERNATING LAYOUT */}
+            {/* Timeline Grid - ALTERNATING LEFT/RIGHT LAYOUT */}
             <div className="space-y-12 md:space-y-0">
               {experiences.map((exp, index) => (
                 <motion.div
@@ -248,7 +248,7 @@ function App() {
                   }}
                   animate={sectionControls}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className="relative md:grid md:grid-cols-2 md:gap-16 md:items-center"
+                  className={`relative ${index % 2 === 0 ? 'md:pr-32' : 'md:pl-32'}`}
                 >
                   {/* Timeline Connector - ALWAYS VISIBLE */}
                   <div className={`absolute top-8 ${index % 2 === 0 ? 'left-0' : 'right-0'} w-12 md:w-16 h-px bg-white/20`}></div>
@@ -256,7 +256,7 @@ function App() {
                   {/* Timeline Dot - ALWAYS VISIBLE */}
                   <div className={`absolute top-6 ${index % 2 === 0 ? '-left-1 md:-left-2' : '-right-1 md:-right-2'} w-3 h-3 md:w-4 md:h-4 bg-white rounded-full border-2 border-purple-500`}></div>
                   
-                  {/* Content Container - ALWAYS ALTERNATING */}
+                  {/* Content Container - ALTERNATING LEFT/RIGHT */}
                   <div className={`${index % 2 === 0 ? 'text-left ml-16 md:ml-20' : 'text-right mr-16 md:mr-20'}`}>
                     {/* Period - Elegant Serif */}
                     <motion.div
